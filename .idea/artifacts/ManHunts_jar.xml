@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ManHunts:jar">
+    <output-path>$PROJECT_DIR$/../../##### Linked Server #####/Train The Tower/plugins</output-path>
+    <root id="archive" name="ManHunts.jar">
+      <element id="module-output" name="ManHunts.main" />
+    </root>
+  </artifact>
+</component>

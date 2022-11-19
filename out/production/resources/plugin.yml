@@ -1,0 +1,5 @@
+name: ManHunts
+author: GirlStream
+version: 1.0
+main: fr.girlstream.manhunts.main
+api-version: 1.16.5

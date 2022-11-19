@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group 'fr.girlstream.manhunts'
+version '1.0-SNAPSHOT'
+archivesBaseName = 'ManHunts'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation group: 'org.spigotmc', name: 'spigot', version: '1.16.4-R0.1-SNAPSHOT', changing: true
+    implementation 'fr.mrmicky:fastboard:1.2.1'
+}
+
+shadowJar {
+    relocate 'fr.mrmicky.fastboard', 'fr.girlstream.fastboard'
+}
+
+test {
+    useJUnitPlatform()
+}

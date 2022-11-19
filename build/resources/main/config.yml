@@ -1,0 +1,45 @@
+# General
+spec: true
+itemTeam: true
+createNewMap: true #If false modify GameMap with your world //NOT IMPLEMETED\\
+gameMap: world
+uhc: false
+
+# Game
+
+respawnAtDeath: true
+
+spawnAtStart:
+  x: 0
+  y: 100
+  z: 0
+createGlassPlatform: true
+
+timeBeforeReleaseHunters: 120 #in Seconds
+
+# Hunter Settings
+
+respawnHunter: true
+respawnHunterCondition: false
+hunterCondition: normal #3 alt Conditions Totem (craft a totem), Kill (Kill a Runners), Sacrifice (Sacrifice yourself to revive somebody else) //NOT IMPLEMETED\\
+
+compass: true
+compassMode: anytime #2 modes AnyTime, timed
+timesInterval: 180 #in Seconds
+
+# Runner Settings
+
+respawnRunner: true
+respawnRunnerCondition: true
+runnerCondition: totem #3 Conditions Totem (craft a totem / craft are not the same), Kill (Kill defined number of Hunters), Sacrifice (Sacrifice yourself to revive somebody else) //NOT IMPLEMETED\\
+killCondition: 10
+
+# Lobby
+
+Lobby:
+  world: world
+  x: 0
+  y: 255
+  z: 0
+  yaw: 0.0
+  pitch: 0.0

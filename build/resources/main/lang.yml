@@ -1,0 +1,51 @@
+prefix: '§6§lManHunts >'
+prefix-error: '§4§lErreur >'
+
+player-join-lobby: '{player} §aa rejoin la partie.'
+
+server-motd-lobby: |-
+  §6§lManHunts §7§l| §e1.16.4
+  §2> §aEn attente de joueurs ... §2<
+
+server-motd-ingame: |-
+  §6§lManHunts §7§l| §e1.16.4
+  §4> §cPartie en Cours §4<
+
+team-none: 'Spectator'
+
+team-hunters: 'Hunters'
+team-hunters-prefix: '§c§lHunters'
+team-hunters-color: '§c'
+
+team-runners: 'Runners'
+team-runners-prefix: '§3§lRunners'
+team-runners-color: '§3'
+
+starting-countdown: '§eLa partie commence dans §c{time} §esecondes !'
+starting: '§eLa partie commence !'
+
+no-permission: '§cVous n''avez pas la permission !'
+start-player-not-in-team: '§cTous les joueurs ne sont pas dans une équipe !'
+start-team-empty: '§cToutes les équipes doivent comporter au moins 1 joueurs'
+game-already-starting: '§cLa partie est deja entrain de se lancer ...'
+command-start-launch: '§7Le lancement de la partie a bien commencé !'
+command-interrupt-not-launched: '§cLe lancement de la partie n'' pas commencé !'
+command-interrupt: '§cLe lancement de la partie a été interromput !'
+player-not-connected-or-doesnt-exist: '§cLe joueur séléctionner n''existe pas ou n''est pas connecter'
+team-help: '§7Voici les differents équipes disponible'
+team-been-add: '§7Le joueur {player} a été ajouter a l''équipe {team}'
+
+scoreboard-title: '§6ManHunts'
+scoreboard-lobby: |-
+  
+  §e         Team : {team}         §e
+  §e         Joueur : §f{online_player}§e/§f{max_player}         §e
+  §e
+
+scoreboard-ingame: |-
+  
+  §e         Team : {team}         §e
+  §e         Kill : §f{player_kill}         §e
+  §e         Timer : §f{timer}         §e
+  §e
+  
