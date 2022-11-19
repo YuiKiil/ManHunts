@@ -1,0 +1,9 @@
+name: ManHunts
+author: GirlStream
+version: 1.0
+main: fr.girlstream.manhunts.main
+api-version: 1.16
+
+commands:
+  manhunts:
+    description: main ManHunts commands
