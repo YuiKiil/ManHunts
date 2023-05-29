@@ -33,6 +33,7 @@ public class User {
     public void setAlive(boolean alive) {
         this.alive = alive;
     }
+    public void setTrueAlive() { this.alive = true; }
 
     public int getKills() {
         return kills;

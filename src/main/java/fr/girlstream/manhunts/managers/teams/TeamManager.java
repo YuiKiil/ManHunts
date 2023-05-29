@@ -2,15 +2,17 @@ package fr.girlstream.manhunts.managers.teams;
 
 import fr.girlstream.manhunts.main;
 import fr.girlstream.manhunts.managers.users.User;
+import fr.girlstream.manhunts.managers.users.UserManager;
 import fr.girlstream.manhunts.scordboard.TeamHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public class TeamManager {
     private main instance = main.getInstance();
+    private UserManager userManager = instance.getUserManager();
 
     private final TeamHandler teamHandler;
     private final Team hunters;
@@ -99,19 +101,27 @@ public class TeamManager {
 
         for(Player player : Bukkit.getOnlinePlayers()){
             if(getPlayerTeam(player) == teamUnit){
-                User user = new User(player);
-                if(user.isAlive()){
+                if (instance.getUserManager().getUser(player).get().isAlive()) {
                     nbteamalive++;
                 }
-            } else {
-                continue;
             }
         }
 
-        if(nbteamalive <= 0){
-            return false;
+        return nbteamalive <= 0;
+    }
+
+    public int getNbTeamAlive(TeamUnit teamUnit) {
+        int nbteamalive = 0;
+
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (getPlayerTeam(player) == teamUnit) {
+                if (instance.getUserManager().getUser(player).get().isAlive()) {
+                    nbteamalive++;
+                }
+            }
         }
-        return true;
+
+        return nbteamalive;
     }
 }
 

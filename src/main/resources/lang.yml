@@ -1,3 +1,10 @@
+# {player} - joueur concerné
+# {team} - team concerné
+# {player_kill} - nombre de kill du joueur
+# {timer} - timer
+# {pvp_state} - etat du pvp (actif ou non)
+# {nb_"team"_alive} - nb de joueur en vie dans la team demandé
+
 prefix: '§6§lManHunts >'
 prefix-error: '§4§lErreur >'
 
@@ -35,6 +42,9 @@ player-not-connected-or-doesnt-exist: '§cLe joueur séléctionner n''existe pas
 team-help: '§7Voici les differents équipes disponible'
 team-been-add: '§7Le joueur {player} a été ajouter a l''équipe {team}'
 
+pvp-state-active: '§aActif'
+pvp-state-no-active: '§cDésactiver'
+
 scoreboard-title: '§6ManHunts'
 scoreboard-lobby: |-
   
@@ -47,5 +57,8 @@ scoreboard-ingame: |-
   §e         Team : {team}         §e
   §e         Kill : §f{player_kill}         §e
   §e         Timer : §f{timer}         §e
+  §e         PVP : §f{pvp_state}         §e
+  §e         En Vie : §3{nb_runner_alive}§f/§c{nb_hunter_alive}         §e
   §e
+  
   

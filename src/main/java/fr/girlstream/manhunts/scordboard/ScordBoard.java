@@ -4,6 +4,7 @@ import fr.girlstream.manhunts.main;
 import fr.girlstream.manhunts.managers.GameState;
 import fr.girlstream.manhunts.managers.lang.Lang;
 import fr.girlstream.manhunts.managers.lang.LangValue;
+import fr.girlstream.manhunts.managers.teams.TeamManager;
 import fr.girlstream.manhunts.managers.teams.TeamUnit;
 import fr.mrmicky.fastboard.FastBoard;
 import org.bukkit.Bukkit;
@@ -72,8 +73,26 @@ public class ScordBoard implements Listener {
     private void updateInGameBoard(FastBoard board){
         Player player = board.getPlayer();
         TeamUnit teamUnit = instance.getTeamManager().getPlayerTeam(player);
-        board.updateLines(Lang.SCOREBOARD_INGAME.get().replace(LangValue.TEAM.toName(), teamUnit.getColoredName()).replace(LangValue.PLAYER_KILL.toName(), "not code").replace(LangValue.TIMER.toName(), String.valueOf(instance.getGame().getTimers().getFormatTimer())).split("\n"));
+        TeamManager teamManager = instance.getTeamManager();
 
+        if(GameState.isState(GameState.IN_GAME_PVP)){
+            board.updateLines(Lang.SCOREBOARD_INGAME.get()
+                    .replace(LangValue.TEAM.toName(), teamUnit.getColoredName()).replace(LangValue.PLAYER_KILL.toName(), "not code")
+                    .replace(LangValue.TIMER.toName(), String.valueOf(instance.getGame().getTimers().getFormatTimer()))
+                    .replace(LangValue.PVP.toName(), Lang.PVP_STATE_ACTIVE.get())
+                    .replace(LangValue.NB_RUNNER_ALIVE.toName(), String.valueOf(teamManager.getNbTeamAlive(TeamUnit.RUNNERS)))
+                    .replace(LangValue.NB_HUNTER_ALIVE.toName(), String.valueOf(teamManager.getNbTeamAlive(TeamUnit.HUNTERS)))
+                    .split("\n"));
+        } else if(GameState.isState(GameState.IN_GAME_NO_PVP)){
+            board.updateLines(Lang.SCOREBOARD_INGAME.get()
+                    .replace(LangValue.TEAM.toName(), teamUnit.getColoredName()).replace(LangValue.PLAYER_KILL.toName(), "not code")
+                    .replace(LangValue.TIMER.toName(), String.valueOf(instance.getGame().getTimers().getFormatTimer()))
+                    .replace(LangValue.PVP.toName(), Lang.PVP_STATE_NO_ACTIVE.get())
+                    .replace(LangValue.NB_RUNNER_ALIVE.toName(), String.valueOf(teamManager.getNbTeamAlive(TeamUnit.RUNNERS)))
+                    .replace(LangValue.NB_HUNTER_ALIVE.toName(), String.valueOf(teamManager.getNbTeamAlive(TeamUnit.HUNTERS)))
+                    .split("\n"));
+
+        }
     }
 
 }

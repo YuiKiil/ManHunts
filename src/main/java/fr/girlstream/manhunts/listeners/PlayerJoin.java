@@ -42,15 +42,14 @@ public class PlayerJoin implements Listener {
 
             instance.getTeamManager().onLogout(p);
             instance.getTeamManager().join(p, TeamUnit.NONE);
-
-            Player player = e.getPlayer();
-
-            FastBoard board = new FastBoard(player);
-
-            board.updateTitle(Lang.SCOREBOARD_TITLE.get());
-
-            scordBoard.addBoards(player.getUniqueId(), board);
+            instance.getUserManager().onLogin(p);
         }
+
+        FastBoard board = new FastBoard(p);
+
+        board.updateTitle(Lang.SCOREBOARD_TITLE.get());
+
+        scordBoard.addBoards(p.getUniqueId(), board);
 
     }
 

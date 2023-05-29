@@ -40,6 +40,11 @@ public class Commands implements CommandExecutor {
                 return false;
             }
 
+            if(strings.length < 1){
+                commandSender.sendMessage(Lang.PREFIX_ERROR.get()  + "§c Aucun argument donné");
+                return false;
+            }
+
             if(strings.length == 1){
                 if(strings[0].equalsIgnoreCase("start")){
                     TeamManager teamManager = instance.getTeamManager();
