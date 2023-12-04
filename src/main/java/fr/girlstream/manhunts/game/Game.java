@@ -97,10 +97,6 @@ public class Game {
         this.aliveDragon = aliveDragon;
     }
 
-    public Map<Player, Boolean> getUsers() {
-        return users;
-    }
-
     public Timers getTimers() {
         return timers;
     }

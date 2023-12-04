@@ -15,6 +15,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerJoin implements Listener {
     private main instance = main.getInstance();
@@ -25,6 +26,7 @@ public class PlayerJoin implements Listener {
     public void onJoin (PlayerJoinEvent e){
         Player p = e.getPlayer();
         e.setJoinMessage(null);
+        instance.getUserManager().onLogin(p);
 
         if(GameState.isState(GameState.LOBBY)){
             e.setJoinMessage(Lang.getPrefix() + "§f" + Lang.PLAYER_JOIN_LOBBY.get().replace(LangValue.PLAYER.toName(), p.getName()));
@@ -52,6 +54,13 @@ public class PlayerJoin implements Listener {
             scordBoard.addBoards(player.getUniqueId(), board);
         }
 
+    }
+
+    //TODO Quand un joueur quitte en gamestate lobby, supprimer le user, sinon le garder en mettant connected sur false
+    @EventHandler
+    public void onQuit(PlayerQuitEvent e){
+        Player p = e.getPlayer();
+        e.setQuitMessage(null);
     }
 
 }

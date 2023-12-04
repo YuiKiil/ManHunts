@@ -93,13 +93,13 @@ public class TeamManager {
         return runners;
     }
 
-
+    //TODO implementer les joueurs non connecter avec connected 
     public boolean isTeamAlive(TeamUnit teamUnit){
         int nbteamalive = 0;
 
         for(Player player : Bukkit.getOnlinePlayers()){
             if(getPlayerTeam(player) == teamUnit){
-                User user = new User(player);
+                User user = instance.getUserManager().getUser(player).get();
                 if(user.isAlive()){
                     nbteamalive++;
                 }

@@ -10,12 +10,25 @@ public class User {
     private final String name;
     private boolean alive;
     private int kills;
+    private boolean connected;
+    private boolean inGame;
 
 
     public User(Player player) {
         this.uuid = player.getUniqueId();
         this.name = player.getName();
         this.alive = true;
+        this.kills = 0;
+        this.connected = true;
+        this.inGame = false;
+    }
+
+    public boolean isInGame() {
+        return inGame;
+    }
+
+    public void setInGame(boolean inGame) {
+        this.inGame = inGame;
     }
 
     public UUID getUuid() {
@@ -28,6 +41,14 @@ public class User {
 
     public boolean isAlive() {
         return alive;
+    }
+
+    public boolean isConnected() {
+        return connected;
+    }
+
+    public void setConnected(boolean connected) {
+        this.connected = connected;
     }
 
     public void setAlive(boolean alive) {

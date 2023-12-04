@@ -4,6 +4,7 @@ import fr.girlstream.manhunts.main;
 import fr.girlstream.manhunts.managers.config.Settings;
 import fr.girlstream.manhunts.managers.lang.Lang;
 import fr.girlstream.manhunts.managers.lang.LangValue;
+import fr.girlstream.manhunts.managers.users.User;
 import fr.girlstream.manhunts.tools.Title;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
@@ -11,6 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class StartRunnable extends BukkitRunnable {
+
+    private main instance = main.getInstance();
     private Settings settings = main.getInstance().getSettings();
 
     private final Game game;
@@ -43,6 +46,8 @@ public class StartRunnable extends BukkitRunnable {
                 player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_DEATH, 1f, 1f);
                 Title title = new Title("§eBonne Chance !");
                 title.send(player, 1, 3, 1);
+                User user = instance.getUserManager().getUser(player).get();
+                user.setInGame(true);
             }
             game.startGame();
             cancel();
