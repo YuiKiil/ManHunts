@@ -7,6 +7,7 @@ import fr.girlstream.manhunts.managers.teams.TeamUnit;
 import fr.girlstream.manhunts.managers.users.User;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -57,8 +58,8 @@ public class Game {
                 player.addPotionEffect(jumpPotionEffect);
                 player.addPotionEffect(resistancePotionEffect);
                 player.sendMessage(Lang.getPrefix() + "§fTu restera bloquer encore §c§l" + instance.getSettings().getTimeBeforeReleaseHunters() + " secondes !"); //TODO Message in Lang.yml
-            } else if(instance.getTeamManager().getPlayerTeam(player) == TeamUnit.RUNNERS){
-                continue;
+            } else if (instance.getTeamManager().getPlayerTeam(player) == TeamUnit.RUNNERS) {
+                player.setGameMode(GameMode.SURVIVAL);
             }
 
         }

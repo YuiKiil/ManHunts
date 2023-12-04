@@ -3,6 +3,8 @@ package fr.girlstream.manhunts.listeners;
 import fr.girlstream.manhunts.game.Game;
 import fr.girlstream.manhunts.main;
 import fr.girlstream.manhunts.managers.GameState;
+import fr.girlstream.manhunts.managers.teams.Team;
+import fr.girlstream.manhunts.managers.teams.TeamManager;
 import fr.girlstream.manhunts.managers.teams.TeamUnit;
 import fr.girlstream.manhunts.managers.users.User;
 import org.bukkit.Bukkit;
@@ -22,6 +24,7 @@ import java.util.Optional;
 
 public class DieEvent implements Listener {
     private main instance = main.getInstance();
+    private TeamManager teamManager = instance.getTeamManager();
 
     @EventHandler
     public void onEntityDie(EntityDeathEvent e){
@@ -44,12 +47,13 @@ public class DieEvent implements Listener {
 
         if(instance.getTeamManager().getPlayerTeam(player) == TeamUnit.RUNNERS){
             for(Player player1 : Bukkit.getOnlinePlayers()){
-                player1.playSound(player1.getLocation(), Sound.ENTITY_ENDER_DRAGON_DEATH, 1f , 1f );
+                player1.playSound(player1.getLocation(), Sound.ENTITY_ENDER_EYE_DEATH, 1f , 1f );
             }
             player.setGameMode(GameMode.SPECTATOR);
             player.setBedSpawnLocation(deathLoc);
             player.teleport(deathLoc);
             instance.getGame().checkWin();
+
         }
         if(instance.getTeamManager().getPlayerTeam(player) == TeamUnit.HUNTERS){ // TODO respawn hunter condition
             if(instance.getSettings().isRespawnHunterCondition() && instance.getSettings().getHunterCondition() == "normal"){
